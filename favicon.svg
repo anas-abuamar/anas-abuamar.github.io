@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="A">
+  <!-- Accent square so the mark reads on both light and dark browser chrome. -->
+  <rect width="64" height="64" rx="14" fill="#0f6e56" />
+  <path
+    d="M32 14 L46 50 h-7.6 l-2.9-8.2H28.5L25.6 50H18L32 14z M30.4 35.4h3.2L32 30.4z"
+    fill="#fdfcfa"
+  />
+</svg>

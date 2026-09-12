@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Forecasting Shellfish Toxin in the Gulf of Maine · Anas Abu Amar</title><meta name="description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><link rel="canonical" href="https://anas-abuamar.github.io/research/hab-world-model/"><link rel="preload" href="/font/source-serif-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/font/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" type="application/rss+xml" title="Anas Abu Amar" href="/rss.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="Anas Abu Amar"><meta property="og:title" content="Forecasting Shellfish Toxin in the Gulf of Maine · Anas Abu Amar"><meta property="og:description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><meta property="og:url" content="https://anas-abuamar.github.io/research/hab-world-model/"><meta property="og:image" content="https://anas-abuamar.github.io/og-default.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Forecasting Shellfish Toxin in the Gulf of Maine · Anas Abu Amar"><meta name="twitter:description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><meta name="twitter:image" content="https://anas-abuamar.github.io/og-default.jpg"><link rel="stylesheet" href="/_astro/BaseLayout.CQvykMr_.css"></head><body><nav><span class="site-name">Anas Abu Amar</span><a href="/">Home</a><a href="/writing">Writing</a><a href="/research" class="here">Research</a><a href="/field">Field</a><a href="/about">About</a><a href="/now">Now</a></nav><main><p class="meta">june 2026</p><h1>Forecasting Shellfish Toxin in the Gulf of Maine</h1><div class="railed"><div class="rail"><p class="k">2026</p><p>Bigelow Laboratory for Ocean Sciences · ongoing</p><ul><li><a href="https://experience.arcgis.com/experience/0477b961c6104cbba1ac1e6342ac10ac">the current forecast, live</a></li><li><a href="https://github.com/BigelowLab/pspforecast">operational record and serving package (BigelowLab/pspforecast)</a></li></ul></div><div class="prose"><p>Paralytic shellfish toxin closes Maine’s shellfish flats. There is already a
+forecast that calls it, and it runs operationally: harvesters and regulators use
+it to decide when the flats open. I am trying to build one that is better.</p>
+<p>The prediction problem is hard for a reason that is interesting on its own.
+Closures are rare. Across five seasons of the public operational record, roughly
+four percent of validated forecasts correspond to an actual closure. Most of the
+year the correct answer is “no,” which means a model can score beautifully on
+accuracy and be worth nothing. The operational ensemble is the line to beat, and
+it is a real line, not a straw man.</p>
+<p>What I am building is a self-supervised world model for this regime: latent
+prediction over the driver sequences first, calibrated uncertainty second, and
+planning on top of that. The bet is that self-supervision earns its keep
+precisely where labels are scarce and the data is full of holes, which is
+exactly the situation here.</p>
+<p>The part I would defend hardest is not the model, it is the evaluation. Every
+scientific claim in the project is backed by an automated test: leakage-safety
+of the temporal splits, the label-efficiency claim, calibration, and policy
+value are checked in CI rather than asserted in prose. If a claim breaks, the
+build goes red. Rare-event forecasting is unusually easy to fool yourself about,
+and a leakage-safe multi-seed protocol is worth as much as the architecture.</p>
+<p>Results stay unpublished until the work is written up. The two links above are
+the forecast as it exists today and the public record I benchmark against, not
+my code.</p>
+</div></div><p style="margin-top:2rem"><a class="tag" href="/tags/ocean/">ocean</a><a class="tag" href="/tags/machine-learning/">machine-learning</a><a class="tag" href="/tags/maine/">maine</a></p><p style="margin-top:2.5rem"><a href="/research/">All research</a></p></main><footer>© 2026 Anas Abu Amar</footer></body></html>

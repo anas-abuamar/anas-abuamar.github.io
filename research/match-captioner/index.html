@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Arabic-to-English Live Match Captioner · Anas Abu Amar</title><meta name="description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><link rel="canonical" href="https://anas-abuamar.github.io/research/match-captioner/"><link rel="preload" href="/font/source-serif-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/font/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" type="application/rss+xml" title="Anas Abu Amar" href="/rss.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="Anas Abu Amar"><meta property="og:title" content="Arabic-to-English Live Match Captioner · Anas Abu Amar"><meta property="og:description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><meta property="og:url" content="https://anas-abuamar.github.io/research/match-captioner/"><meta property="og:image" content="https://anas-abuamar.github.io/og-default.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Arabic-to-English Live Match Captioner · Anas Abu Amar"><meta name="twitter:description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><meta name="twitter:image" content="https://anas-abuamar.github.io/og-default.jpg"><link rel="stylesheet" href="/_astro/BaseLayout.CQvykMr_.css"></head><body><nav><span class="site-name">Anas Abu Amar</span><a href="/">Home</a><a href="/writing">Writing</a><a href="/research" class="here">Research</a><a href="/field">Field</a><a href="/about">About</a><a href="/now">Now</a></nav><main><p class="meta">june 2026</p><h1>Arabic-to-English Live Match Captioner</h1><div class="railed"><div class="rail"><p class="k">2026</p><p>independent</p><ul><li><a href="https://anas-abuamar.github.io/match-captioner/">Try it in the browser</a></li><li><a href="https://github.com/anas-abuamar/match-captioner">Code</a></li></ul></div><div class="prose"><p>Watching football in Arabic is not the same game as watching it in English. The
+commentary is doing something else. A good Arabic commentator will take a
+throw-in as an opening to tell you about the city the player is from, or a
+rivalry that predates everyone on the pitch, or a line of poetry that happens to
+fit. The match is the occasion. What you are actually being given is closer to a
+history lesson delivered at speed by someone who cannot stop himself.</p>
+<p>I was watching the World Cup with friends from Japan and elsewhere, all of us in
+the same room watching the same match, and I realised they were watching a
+different one. They had the score. They did not have the digression about the
+player’s grandfather. The part I love most was the part that did not survive the
+language.</p>
+<p>So I built a captioner. The first version captured system audio off the same
+laptop, fed it in ten-second chunks with four seconds of overlap to
+<code>whisper-cpp</code> for Arabic-to-English translation, and painted the result into an
+always-on-top window. The current one does the same thing in the browser:
+Whisper runs on the GPU through WebGPU, the match plays in another tab, and the
+captions float over it. Either way it runs entirely on the machine, no cloud
+API, no audio leaving the laptop. That started as a latency decision and turned
+out to matter more to me than the latency did.</p>
+<p>The engineering problem is the seam. Live speech does not arrive in tidy
+sentences, so fixed chunks cut words in half and the translation degrades at
+every boundary. The overlap window exists to give the model enough context to
+recover across the cut, and tuning that overlap against latency is most of what
+makes the thing usable rather than merely working. There is a mock-audio mode
+that runs a recorded file through the identical path, because debugging a live
+pipeline on match day is not debugging.</p>
+<p>The honest limitation is that it solves the smaller half of the problem. It
+translates the words. It does not carry the reference, the idiom, or the reason
+the commentator’s voice just went up. A literal translation of a digression
+about a player’s grandfather is a sentence about a grandfather. The thing worth
+building next is not better captions, it is annotation: surfacing what is being
+alluded to, not just what is being said. That is a harder problem and a more
+interesting one, and it is the version I actually want.</p>
+</div></div><p style="margin-top:2rem"><a class="tag" href="/tags/arabic/">arabic</a><a class="tag" href="/tags/speech/">speech</a><a class="tag" href="/tags/machine-learning/">machine-learning</a></p><p style="margin-top:2.5rem"><a href="/research/">All research</a></p></main><footer>© 2026 Anas Abu Amar</footer></body></html>

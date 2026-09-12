@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A Local Re-Implementation of the AI Co-Scientist · Anas Abu Amar</title><meta name="description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><link rel="canonical" href="https://anas-abuamar.github.io/research/local-co-scientist/"><link rel="preload" href="/font/source-serif-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/font/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" type="application/rss+xml" title="Anas Abu Amar" href="/rss.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="Anas Abu Amar"><meta property="og:title" content="A Local Re-Implementation of the AI Co-Scientist · Anas Abu Amar"><meta property="og:description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><meta property="og:url" content="https://anas-abuamar.github.io/research/local-co-scientist/"><meta property="og:image" content="https://anas-abuamar.github.io/og-default.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="A Local Re-Implementation of the AI Co-Scientist · Anas Abu Amar"><meta name="twitter:description" content="Writing, research, and photography: machine learning, the Gulf of Maine, and how systems decide what can be known."><meta name="twitter:image" content="https://anas-abuamar.github.io/og-default.jpg"><link rel="stylesheet" href="/_astro/BaseLayout.CQvykMr_.css"></head><body><nav><span class="site-name">Anas Abu Amar</span><a href="/">Home</a><a href="/writing">Writing</a><a href="/research" class="here">Research</a><a href="/field">Field</a><a href="/about">About</a><a href="/now">Now</a></nav><main><p class="meta">may 2026</p><h1>A Local Re-Implementation of the AI Co-Scientist</h1><div class="railed"><div class="rail"><p class="k">2026</p><p>independent</p></div><div class="prose"><p>Google published an AI co-scientist in <em>Nature</em> in 2026, a multi-agent system
+that takes a natural-language research goal and returns a tournament-ranked set
+of novel hypotheses. The paper ships pseudocode and per-agent prompts in its
+supplement. I wanted to know whether the described system actually behaves the
+way the paper says it does, and the only way to know that is to build it.</p>
+<p>So this is an independent open-source re-implementation, in Python over
+pluggable LLM providers, following the paper’s agent roster and control flow:
+Generation proposes hypotheses through simulated scientific debate, Reflection
+reviews them for novelty and testability, Ranking runs an Elo tournament of
+pairwise debates, Evolution recombines and simplifies the top-ranked, Proximity
+embeds and clusters to drive deduplication and informative pairings, and
+Meta-review synthesizes the final overview. A Supervisor parses the goal into a
+plan and schedules the agents through a durable SQLite-backed queue with
+bounded concurrency.</p>
+<p>The piece I would point to first is the benchmark log. Every cross-model bench
+ever run against the code is recorded with per-candidate Elo, every hypothesis
+produced, gold-set hits, and file pointers back to the run, generated from the
+bench database rather than written by hand. A multi-agent system that
+generates plausible text is very easy to believe and very hard to evaluate, and
+an honest bench trail is the only defence against grading your own homework.</p>
+<p>Not affiliated with Google or the paper’s authors.</p>
+</div></div><p style="margin-top:2rem"><a class="tag" href="/tags/multi-agent/">multi-agent</a><a class="tag" href="/tags/machine-learning/">machine-learning</a></p><p style="margin-top:2.5rem"><a href="/research/">All research</a></p></main><footer>© 2026 Anas Abu Amar</footer></body></html>
